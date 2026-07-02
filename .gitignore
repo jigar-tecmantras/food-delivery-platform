@@ -1,0 +1,12 @@
+
+# System/user files
+.bash_logout
+.bashrc
+.profile
+.sudo_as_admin_successful
+composer-setup.php
+
+# Node and vendor directories (handled in subprojects)
+backend/vendor/
+backend/node_modules/
+frontend/node_modules/
