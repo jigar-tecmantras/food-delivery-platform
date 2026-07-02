@@ -1,101 +1,105 @@
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #0f172a;
+  color-scheme: dark;
   background: #f8fafc;
 }
 
 body {
   margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #f8fafc;
 }
 
 .app-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 2.5rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .hero {
-  background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: #fff;
+  background: linear-gradient(125deg, #0f172a, #312e81);
   border-radius: 32px;
   padding: 2.5rem;
+  color: #fff;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   align-items: center;
 }
 
-.hero h1 {
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
+.hero__card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero__content h1 {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
   margin-bottom: 0.5rem;
 }
 
-.hero-card {
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.08);
+.hero__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
 }
 
-.hero-card h3 {
-  margin: 0;
+.hero__actions button {
+  min-width: 170px;
 }
 
-.tag {
-  display: inline-flex;
-  padding: 0.2rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
-  font-size: 0.8rem;
-  margin-bottom: 0.75rem;
-}
-
-.hero-actions button {
-  margin-right: 0.75rem;
+.status {
+  font-size: 0.9rem;
+  color: #c7d2fe;
 }
 
 .section {
-  margin-top: 3rem;
-  padding: 2rem;
   background: #fff;
   border-radius: 28px;
-  box-shadow: 0 10px 45px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.section-header {
+.section__heading {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.75rem;
+}
+
+.lead,
+.section p {
+  color: #475569;
 }
 
 .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
   color: #94a3b8;
   margin: 0;
-}
-
-.lead {
-  color: #e2e8f0;
 }
 
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
-  margin-top: 1.5rem;
 }
 
 .menu-card {
-  padding: 1.25rem;
+  padding: 1.2rem;
   border-radius: 18px;
-  background: #f8fafc;
   border: 1px solid #e2e8f0;
+  background: #f8fafc;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -111,80 +115,118 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #475569;
 }
 
-.section.split {
-  display: grid;
+.grid-two {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: grid;
   gap: 1.5rem;
-  padding: 2.5rem;
 }
 
-.result-card {
-  border-radius: 16px;
-  padding: 1rem;
-  background: #ecfccb;
-  border: 1px solid #bef264;
-  color: #4b6f21;
+.pill {
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: #e2e8f0;
+  font-size: 0.9rem;
+  display: inline-flex;
 }
 
-.result-card.error {
-  background: #fee2e2;
+.result,
+.timeline {
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result.ghost,
+.result.error {
   border-color: #fecaca;
+  background: #fee2e2;
   color: #991b1b;
 }
 
-.result-card.ghost {
-  background: #f1f5f9;
+.result.ghost {
   border-color: #e2e8f0;
+  background: #f1f5f9;
   color: #475569;
 }
 
-.order-tracking ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.75rem 0 0;
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.order-tracking li {
-  padding: 0.35rem 0;
+.tag.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.timeline ul {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.timeline li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
-.order-tracking li.done {
-  color: #16a34a;
-  font-weight: 600;
+.timeline li:last-child {
+  border-bottom: none;
 }
 
-.role-tabs button {
-  margin-left: 0.75rem;
+.timeline li.done span:first-child {
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.role-tabs {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .dashboard-card {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
   border-radius: 18px;
   border: 1px solid #e2e8f0;
   background: #f8fafc;
+  padding: 1.5rem;
 }
 
 .dashboard-card dl {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.75rem;
+  gap: 0.8rem;
 }
 
 .dashboard-card dt {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   color: #94a3b8;
 }
 
 .dashboard-card dd {
-  margin: 0 0 0.5rem;
+  margin: 0;
   font-weight: 600;
 }
 
@@ -194,7 +236,7 @@ button {
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
   font-weight: 600;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button.primary {
@@ -207,9 +249,17 @@ button.ghost {
   color: #0f172a;
 }
 
+button.link {
+  background: none;
+  color: #4f46e5;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
 button.base {
   border: 1px solid #cbd5f5;
   background: rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
 }
 
 button:hover {
@@ -218,13 +268,11 @@ button:hover {
 
 @media (max-width: 600px) {
   .hero,
-  .section,
-  .section.split {
+  .section {
     padding: 1.5rem;
   }
 
-  .hero-actions button {
-    width: 100%;
-    margin: 0 0 0.5rem;
+  .hero__actions {
+    flex-direction: column;
   }
 }

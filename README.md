@@ -1,9 +1,9 @@
 # Food Delivery Platform
 
-This repository powers a demo food delivery experience with a React/Vite frontend and Laravel API backend. The stack includes:
+This repository powers a demo food delivery experience with a React (Create React App) frontend and a Laravel API backend. The stack includes:
 
-- **React frontend** (`frontend/`) featuring home, menu, checkout, and dashboard sections plus responsive styling.
-- **Laravel APIs** (`backend/`) exposing endpoints for home data, menu browsing, checkout/payment simulation, order tracking, and role-aware dashboards.
+- **React frontend** (`frontend/`) featuring home, menu, checkout, and dashboard sections plus responsive styling and role-aware tabs.
+- **Laravel APIs** (`backend/`) exposing endpoints for home data, menu browsing, checkout/payment simulation, order tracking, and persona dashboards.
 
 ## Running locally
 
@@ -21,15 +21,15 @@ API entrypoint: `http://localhost:8000/api/v1/`
 ```bash
 cd frontend
 npm install
-npm run dev -- --host 0.0.0.0 --port 5173
+npm start
 ```
 
-The frontend proxies to `/api` - ensure the Laravel server is running on port 8000 (adjust `vite.config.js` proxy if needed).
+The frontend proxies `/api` to the Laravel server (configured via the `proxy` field in `frontend/package.json`). Ensure the backend is running on port 8000.
 
 ## Key features
 
-- **Home hero** with highlighted chefs, promotions, and stats.
-- **Menu grid** pulled from the `GET /api/v1/menu` endpoint.
-- **Checkout** that posts to `POST /api/v1/checkout`, simulating payment processing.
-- **Order tracking** preview from `GET /api/v1/order-tracking/{id}`.
+- **Home hero** with expressive messaging, CTA buttons, and featured dish highlights.
+- **Menu grid** obtained from `GET /api/v1/menu`, styled for responsive breakpoints.
+- **Checkout simulation** using `POST /api/v1/checkout` to display robust totals.
+- **Order tracking** preview powered by `GET /api/v1/order-tracking/{id}`.
 - **Role dashboards** for `customer`, `restaurant`, and `admin` views via `GET /api/v1/dashboard?role=`.
